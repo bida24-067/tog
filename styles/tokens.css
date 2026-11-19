@@ -1,0 +1,26 @@
+:root {
+  /* Brand Colors */
+  --color-bg: #FFFFFF;
+  --color-surface: #E8E4D8;
+  --color-ink: #000000;
+  --color-primary: #5D232C;
+  --color-accent: #992A38;
+  --color-muted: #992A38;
+  --color-muted-border: rgba(93, 35, 44, 0.25);
+
+  /* Geometry */
+  --radius: 4px;
+  --max-width: 1280px;
+
+  /* Easing */
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
