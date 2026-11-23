@@ -55,8 +55,7 @@ export const Header: React.FC = () => {
           {/* Desktop & Mobile Actions */}
           <div className="flex items-center gap-3 sm:gap-6">
             <Button
-              href={getWhatsAppBookingUrl()}
-              isExternal
+              href="/book"
               size="sm"
               variant={isScrolled ? "primary" : "outline"}
               className="hidden sm:inline-flex"

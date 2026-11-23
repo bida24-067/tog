@@ -56,16 +56,25 @@ export default function ServicesPage() {
             Ready to reserve your appointment?
           </h3>
           <p className="text-xs text-primary/80">
-            Terms and Conditions Apply. Walk-ins subject to availability.
+            Real-time calendar slot booking with instant confirmation. Walk-ins subject to availability.
           </p>
-          <Button
-            href={getWhatsAppBookingUrl()}
-            isExternal
-            size="lg"
-            variant="primary"
-          >
-            BOOK ON WHATSAPP
-          </Button>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
+            <Button
+              href="/book"
+              size="lg"
+              variant="primary"
+            >
+              BOOK ONLINE
+            </Button>
+            <Button
+              href={getWhatsAppBookingUrl()}
+              isExternal
+              size="lg"
+              variant="outline"
+            >
+              CHAT ON WHATSAPP
+            </Button>
+          </div>
         </div>
       </Container>
     </div>

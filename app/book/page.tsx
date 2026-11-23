@@ -1,67 +1,65 @@
 import React from "react";
 import Container from "@/components/ui/Container";
-import Button from "@/components/ui/Button";
-import { siteConfig, getWhatsAppBookingUrl } from "@/data/site";
-import { Phone, MapPin, Clock, Calendar } from "lucide-react";
+import BookingWizard from "@/components/booking/BookingWizard";
+import { siteConfig } from "@/data/site";
+import { Phone, MapPin, Clock, CalendarCheck } from "lucide-react";
+
+export const metadata = {
+  title: "Book an Appointment",
+  description: "Schedule your nail care, brows, lashes, facials, or massage at Touch Of Glow in Gaborone with real-time calendar syncing.",
+};
 
 export default function BookPage() {
   return (
-    <div className="pt-36 pb-24">
+    <div className="pt-32 sm:pt-40 pb-24 bg-[#FDFBF7]">
       <Container>
-        <div className="max-w-2xl mb-12">
-          <span className="text-xs uppercase tracking-[0.25em] text-accent font-semibold block mb-2">
-            Reservations
+        {/* Header Introduction */}
+        <div className="max-w-3xl mx-auto text-center mb-12">
+          <span className="text-[10px] sm:text-xs uppercase tracking-[0.28em] text-accent font-semibold block mb-2">
+            Online Reservations
           </span>
-          <h1 className="text-4xl sm:text-5xl font-serif text-primary mb-4">
+          <h1 className="text-3xl sm:text-5xl font-serif text-primary mb-4 leading-tight">
             Book Your Experience
           </h1>
-          <p className="text-sm text-primary/80 leading-relaxed">
-            We operate primarily via WhatsApp to guarantee prompt scheduling and personalized attention for every guest.
+          <p className="text-xs sm:text-sm text-primary/80 max-w-xl mx-auto leading-relaxed">
+            Select your treatments, choose an available time slot synced directly with the Touch Of Glow store calendar, and receive your confirmation via WhatsApp or Email.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl">
-          <div className="bg-surface p-8 rounded-[var(--radius)] border border-[#ded9cb] space-y-6">
-            <h2 className="font-serif text-2xl text-primary">Instant WhatsApp Booking</h2>
-            <p className="text-xs text-primary/80 leading-relaxed">
-              Click below to send a prefilled booking inquiry directly to our salon reception team.
-            </p>
-            <Button
-              href={getWhatsAppBookingUrl()}
-              isExternal
-              size="lg"
-              variant="primary"
-            >
-              CHAT ON WHATSAPP
-            </Button>
+        {/* The 5-Step Interactive Booking Wizard */}
+        <div className="mb-16">
+          <BookingWizard />
+        </div>
 
-            <div className="pt-4 border-t border-primary/10 text-xs space-y-2 text-primary/80">
-              <p className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-accent" />
-                Direct: {siteConfig.contact.displayWhatsapp}
-              </p>
-              <p className="flex items-center gap-2">
-                <MapPin className="w-4 h-4 text-accent" />
-                {siteConfig.location.mall}, {siteConfig.location.shop}
-              </p>
-              <p className="flex items-center gap-2">
-                <Clock className="w-4 h-4 text-accent" />
-                Weekdays {siteConfig.hours.weekdays}
+        {/* Quick Assistance Information Strip */}
+        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 pt-12 border-t border-[#ded9cb] text-xs text-primary/80">
+          <div className="flex items-start gap-3 bg-white p-5 rounded-[var(--radius)] border border-[#ded9cb]">
+            <CalendarCheck className="w-5 h-5 text-accent shrink-0 mt-0.5" />
+            <div>
+              <span className="font-semibold text-primary block mb-0.5">Live Calendar Sync</span>
+              <p className="text-primary/70">
+                Your appointment is securely scheduled in the store&apos;s Google Calendar in real time.
               </p>
             </div>
           </div>
 
-          <div className="bg-white p-8 rounded-[var(--radius)] border border-[#ded9cb] space-y-4">
-            <div className="flex items-center gap-2 text-accent">
-              <Calendar className="w-5 h-5" />
-              <h2 className="font-serif text-xl text-primary">Google Calendar Integration</h2>
+          <div className="flex items-start gap-3 bg-white p-5 rounded-[var(--radius)] border border-[#ded9cb]">
+            <Phone className="w-5 h-5 text-accent shrink-0 mt-0.5" />
+            <div>
+              <span className="font-semibold text-primary block mb-0.5">Prefer Direct WhatsApp?</span>
+              <p className="text-primary/70">
+                You can also message our reception desk directly on {siteConfig.contact.displayWhatsapp}.
+              </p>
             </div>
-            <p className="text-xs text-primary/70 leading-relaxed">
-              Integration for select treatments is supported. In Phase 4, you can pick a specific service and sync directly with Google Calendar.
-            </p>
-            <div className="p-4 bg-surface/50 rounded-[var(--radius)] text-xs text-primary/70 border border-[#ded9cb]">
-              <p className="font-semibold text-primary mb-1">Status: Ready for Service Selection</p>
-              <p>Endpoints configured at <code>/api/calendar</code>.</p>
+          </div>
+
+          <div className="flex items-start gap-3 bg-white p-5 rounded-[var(--radius)] border border-[#ded9cb]">
+            <MapPin className="w-5 h-5 text-accent shrink-0 mt-0.5" />
+            <div>
+              <span className="font-semibold text-primary block mb-0.5">Location & Parking</span>
+              <p className="text-primary/70">
+                {siteConfig.location.mall}, {siteConfig.location.shop}, Gaborone.
+              </p>
             </div>
           </div>
         </div>

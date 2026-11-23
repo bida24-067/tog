@@ -100,8 +100,8 @@ export const MenuOverlay: React.FC<MenuOverlayProps> = ({ isOpen, onClose }) => 
               className="mt-8 pt-8 flex flex-wrap gap-4 items-center"
             >
               <Button
-                href={getWhatsAppBookingUrl()}
-                isExternal
+                href="/book"
+                onClick={onClose}
                 size="lg"
                 variant="primary"
               >
