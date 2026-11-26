@@ -18,4 +18,31 @@
     font-family: var(--font-playfair), serif;
     color: var(--color-primary);
   }
+
+  /* Accessibility: Visible, high-contrast focus rings */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  /* Smooth anchor scrolling offsets */
+  section[id] {
+    scroll-margin-top: 140px;
+  }
+
+  /* Custom subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #FAF8F5;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #ded9cb;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent);
+  }
 }
